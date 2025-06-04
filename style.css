@@ -1,0 +1,22 @@
+/* full-screen coloured background for a bit of vibe */
+body {
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  place-items: center;     /* centres the image */
+  background: #ffffff;     /* fallback */
+}
+
+/* make the image responsive but never stretch */
+#card {
+  max-width: 90vmin;
+  max-height: 90vmin;
+  object-fit: contain;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(0,0,0,.2);
+  transition: transform .25s;
+}
+
+#card:active {
+  transform: scale(.97);
+}
