@@ -10,24 +10,20 @@
 
   <img id="card" alt="quote card" />
 
-  <script>
-    // ------------- CONFIG -------------
-    // Put every file-name that sits in /images here.
-    // (Or generate this array in Python – see note below.)
+ <script>
+  document.addEventListener("DOMContentLoaded", () => {
     const images = [
       "cioran.jpeg",
-      "woolf.jpeg",
       "CLS.jpeg",
       "MASc.jpeg",
       "Ronell.jpeg",
-      "Solnit.jpeg"
-    ].map(file => `images/${file}`);     // prefix folder path
-    // ----------------------------------
+      "Solnit.jpeg",
+      "woolf.jpeg"
+    ].map(file => `images/${file}`);
 
     const img = document.getElementById("card");
 
     function pickRandom(exclude) {
-      // choose a new element different from `exclude`
       let next;
       do {
         next = images[Math.floor(Math.random() * images.length)];
@@ -39,12 +35,10 @@
       img.src = pickRandom(img.src);
     }
 
-    // first load
     showRandom();
-
-    // click / tap anywhere to advance
     document.addEventListener("click", showRandom);
     document.addEventListener("touchstart", showRandom);
-  </script>
+  });
+</script>
 </body>
 </html>
