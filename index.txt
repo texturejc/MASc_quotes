@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MASc Quote Cards</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <img id="card" alt="quote card" />
+
+  <script>
+    // ------------- CONFIG -------------
+    // Put every file-name that sits in /images here.
+    // (Or generate this array in Python – see note below.)
+    const images = [
+      "WhatsApp Image 2025-06-04 at 14.53.31.jpeg",
+      "WhatsApp Image 2025-06-04 at 14.53.55.jpeg",
+      "WhatsApp Image 2025-06-04 at 14.45.22.jpeg",
+      "WhatsApp Image 2025-06-04 at 14.40.35.jpeg",
+      "WhatsApp Image 2025-06-04 at 14.33.24.jpeg",
+      "WhatsApp Image 2025-06-04 at 14.31.25.jpeg"
+    ].map(file => `images/${file}`);     // prefix folder path
+    // ----------------------------------
+
+    const img = document.getElementById("card");
+
+    function pickRandom(exclude) {
+      // choose a new element different from `exclude`
+      let next;
+      do {
+        next = images[Math.floor(Math.random() * images.length)];
+      } while (next === exclude && images.length > 1);
+      return next;
+    }
+
+    function showRandom() {
+      img.src = pickRandom(img.src);
+    }
+
+    // first load
+    showRandom();
+
+    // click / tap anywhere to advance
+    document.addEventListener("click", showRandom);
+    document.addEventListener("touchstart", showRandom);
+  </script>
+</body>
+</html>
